@@ -1,6 +1,8 @@
 package com.abhi.config;
 
 
+import com.abhi.converters.CreditCardConverter;
+import com.abhi.converters.CreditConverterObjectToString;
 import com.abhi.formatter.CreditCardFormatter;
 import com.abhi.formatter.PhoneNumberFormatter;
 import org.springframework.context.MessageSource;
@@ -54,7 +56,8 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
 
         registry.addFormatter(new PhoneNumberFormatter());
-        registry.addFormatter(new CreditCardFormatter());
-
+     //   registry.addFormatter(new CreditCardFormatter());
+       // registry.addConverter(new CreditCardConverter());
+    //  registry.addConverter(new CreditConverterObjectToString());
     }
 }

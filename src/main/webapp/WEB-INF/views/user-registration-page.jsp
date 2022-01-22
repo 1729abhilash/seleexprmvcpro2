@@ -27,6 +27,7 @@
 <br>
    <label >UserName:</label>
    <form:input path="userName"></form:input>
+<form:errors path="userName" cssClass="error"/>
 <br>
 
    <label>password:</label>
@@ -57,6 +58,8 @@
     <h1>Communication</h1>
     <label>Email</label>
     <form:input path="communicationDto.email"></form:input>
+  <form:errors path="communicationDto.email" cssClass="error"/>
+
     <br>
     <label>Phone</label>
     <form:input path="communicationDto.phone"></form:input>

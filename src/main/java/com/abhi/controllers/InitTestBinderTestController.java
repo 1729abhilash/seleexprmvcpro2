@@ -1,6 +1,10 @@
 package com.abhi.controllers;
 
+import com.abhi.credit.CreditCard;
 import com.abhi.dto.BillDTO;
+import com.abhi.formatter.CreditCardFormatter;
+import com.abhi.propertyeditor.CreditCardEditor;
+import com.abhi.propertyeditor.MyCurrencyEditor;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.Currency;
 import java.util.Date;
 
 @Controller
@@ -47,6 +52,17 @@ public class InitTestBinderTestController {
         NumberFormat numberFormat=new DecimalFormat("##,###.00");
         CustomNumberEditor customNumberEditor = new CustomNumberEditor(BigDecimal.class,numberFormat,true);
      binder.registerCustomEditor(BigDecimal.class,"amount",customNumberEditor);
+
+     //register a custom editor for currency
+        MyCurrencyEditor myCurrencyEditor = new MyCurrencyEditor();
+        binder.registerCustomEditor(Currency.class,"currency",myCurrencyEditor);
+
+        //adding a custom formatter rather than in config class
+        //binder.addCustomFormatter(new CreditCardFormatter());
+
+
+       //CreditCardEditor myCreditCardEditor = new CreditCardEditor();//same formatter thing we can do using editor also
+      // binder.registerCustomEditor(CreditCard.class,"creditCard",myCreditCardEditor);
 
     }
 

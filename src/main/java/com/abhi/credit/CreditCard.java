@@ -37,4 +37,14 @@ public class CreditCard {
     public void setFourFourDigits(Integer fourFourDigits) {
         this.fourFourDigits = fourFourDigits;
     }
+
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "firstFourDigits=" + firstFourDigits +
+                ", secondFourDigits=" + secondFourDigits +
+                ", thirdFourDigits=" + thirdFourDigits +
+                ", fourFourDigits=" + fourFourDigits +
+                '}';
+    }
 }

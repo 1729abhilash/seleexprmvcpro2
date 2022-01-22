@@ -4,6 +4,9 @@ package com.abhi.controllers;
 import com.abhi.dto.CommunicationDto;
 import com.abhi.dto.Phone;
 import com.abhi.dto.UserRegistrationDto;
+import com.abhi.propertyeditor.NamePropertyEditor;
+import com.abhi.validator.EmailValidator;
+import com.abhi.validator.UserNameValidator;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,7 +78,16 @@ public class RegistrationController {
         //setting from fields into beans
         //an init method initialises WebDataBinder
 
+      //creating custompropertyeditor
+        NamePropertyEditor nameEditor=new NamePropertyEditor();
+        binder.registerCustomEditor(String.class,"name",nameEditor);
 
+
+        UserNameValidator userNameValidator=new UserNameValidator();
+       binder.addValidators(userNameValidator);
+
+
+       binder.addValidators(new EmailValidator());
 
     }
     
