@@ -1,6 +1,12 @@
 package com.abhi.dto;
 
+import com.abhi.validator.Age;
+
+import javax.validation.constraints.NotEmpty;
+
 public class UserRegistrationDto {
+
+    @NotEmpty(message="* can not be empty")
     private String name;
     private String userName;
     private char[] password;
@@ -10,7 +16,8 @@ public class UserRegistrationDto {
 
     private String[] hobbies;
     private String gender;
-    private int age;//behind the string is converted into string
+    @Age(lower=45,upper=60)
+    private Integer age;//developing custom annotation//behind the string is converted into string
     private CommunicationDto communicationDto;
     public CommunicationDto getCommunicationDto() {
         return communicationDto;
@@ -25,11 +32,11 @@ public class UserRegistrationDto {
     public String getGender() {
         return gender;
     }
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
     public void setGender(String gender) {

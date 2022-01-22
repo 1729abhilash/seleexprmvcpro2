@@ -5,15 +5,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-    <title>Document</title>
+  <style type="text/css">
+      .error{
+        color:red;
+        position:fixed;
+        text-align:left;
+        margin-left: 40px;
+
+      }
+    </style>
+    <title>Registration Page</title>
 </head>
 <body>
     <h1 align="center">Please register here</h1>
     <div align="center">
     <form:form action="registration-success" method="get" modelAttribute="userReg">
-    <label >User:</label>
+    <label >Name:</label>
    <form:input path="name"></form:input>
+   <form:errors path="name" cssClass="error"/>
+
 <br>
    <label >UserName:</label>
    <form:input path="userName"></form:input>
@@ -41,6 +51,7 @@
    <br>
    <label>Age</label>
     <form:input path="age"/>
+    <form:errors path="age" cssClass="error"/>
         <br>
    <div align="center">
     <h1>Communication</h1>
