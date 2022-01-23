@@ -9,7 +9,7 @@ public class UserInfoDto {
 
     @NotBlank(message="User name can't be blank ")
     //@Min(value=3,message="*your name should have 3 characters")
-    @Size(min=3,max=15,message="your username min have 3 charcter and max have 15 character ")
+    @Size(min=3,max=15,message="{userName.size}")
     private String userName;
 
     @NotBlank(message="crush name can't be blank ")

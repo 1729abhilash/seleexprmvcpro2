@@ -10,8 +10,15 @@ pageEncoding="ISO-8859-1" isELIgnored="false"%>
 </head>
 <body>
     <h1 align="center">Love Calculator</h1>
+    <h3>Hi! ${userInfo.userName}</h3>
     <hr/>
-    <p>userName is ${userInfo.userName}</p>
-    <p>crushName is ${userInfo.crushName}</p>
+    <h2>The love calculator predicts:</h2>
+    <br>
+    ${userInfo.userName} and ${userInfo.crushName} are
+    <br>
+    friends
+    <br>
+ <a href="/sendEmail ">Send result to the email</a>
+
 </body>
 </html>

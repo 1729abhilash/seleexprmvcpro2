@@ -7,6 +7,7 @@ import com.abhi.dto.UserRegistrationDto;
 import com.abhi.propertyeditor.NamePropertyEditor;
 import com.abhi.validator.EmailValidator;
 import com.abhi.validator.UserNameValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,8 @@ import java.util.List;
 
 @Controller
 public class RegistrationController {
-
+    @Autowired
+    private EmailValidator emailValidator;
     @RequestMapping("/register")
     public String showRegistrationPage(@ModelAttribute("userReg") UserRegistrationDto dto){
  dto.setName("abhilash");
@@ -41,6 +43,15 @@ public class RegistrationController {
     @RequestMapping("/registration-success")
     public String processUserReg(@Valid @ModelAttribute("userReg") UserRegistrationDto dto, BindingResult result){
 //save the dto object in database
+
+
+//        //when we need to add validator insider handler methods
+//        EmailValidator emailValidator = new EmailValidator();//we do not need to do this also we can use @Component
+//        annotation
+        //we can do this by autowiring
+
+        emailValidator.validate(dto,result);
+
         if(result.hasErrors()) {
          List<ObjectError> allErrors=result.getAllErrors();
          for(ObjectError error : allErrors)
@@ -87,8 +98,8 @@ public class RegistrationController {
        binder.addValidators(userNameValidator);
 
 
-       binder.addValidators(new EmailValidator());
-
+     //  binder.addValidators(new EmailValidator());
+//above doing this by using autowiring
     }
     
     

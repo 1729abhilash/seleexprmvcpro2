@@ -51,6 +51,13 @@
       <version>6.1.7.Final</version>
     </dependency>
 
+
+    <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+
+    <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+
+
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -94,5 +101,15 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
